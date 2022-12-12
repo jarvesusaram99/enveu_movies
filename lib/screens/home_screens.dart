@@ -67,77 +67,90 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     print("object");
+        //   },
+        // ),
         extendBody: true,
         backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 170.0,
-                      child: PageView.builder(
-                          controller: pageController,
-                          itemCount: images.length,
-                          reverse: false,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20.0),
-                                child: CachedNetworkImage(
-                                  imageUrl: images[index],
-                                  placeholder: (context, url) => const SizedBox(
-                                      height: 30,
-                                      width: 30,
-                                      child: CupertinoActivityIndicator()),
-                                  errorWidget: (e, b, c) =>
-                                      Container(color: Colors.black12),
-                                  fit: BoxFit.cover,
+        body: ScrollConfiguration(
+          behavior: const MaterialScrollBehavior().copyWith(
+              overscroll: false, physics: const BouncingScrollPhysics()),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding:
+                  const EdgeInsets.only(left: 16.0, right: 16.0, top: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: 170.0,
+                        child: PageView.builder(
+                            controller: pageController,
+                            itemCount: images.length,
+                            reverse: false,
+                            itemBuilder: (context, index) {
+                              return Container(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  child: CachedNetworkImage(
+                                    imageUrl: images[index],
+                                    placeholder: (context, url) =>
+                                        const SizedBox(
+                                            height: 30,
+                                            width: 30,
+                                            child:
+                                                CupertinoActivityIndicator()),
+                                    errorWidget: (e, b, c) =>
+                                        Container(color: Colors.black12),
+                                    fit: BoxFit.cover,
+                                  ),
                                 ),
-                              ),
-                            );
-                          }),
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Obx(
-                        () => CarouselDotScreen(
-                            Get.find<WelcomeController>().page.value,
-                            images.length,
-                            Colors.white),
+                              );
+                            }),
                       ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                TrendingSlider(
-                  images: moviesList,
-                  heading: "Popular Movies",
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                const MoviesList(),
-                const SizedBox(
-                  height: 20,
-                ),
-                TrendingSlider(
-                  images: trendingList,
-                  heading: "Supernatural TV Shows",
-                ),
-                const SizedBox(
-                  height: 150,
-                ),
-              ],
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Obx(
+                          () => CarouselDotScreen(
+                              Get.find<WelcomeController>().page.value,
+                              images.length,
+                              Colors.white),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TrendingSlider(
+                    images: moviesList,
+                    heading: "Popular".tr,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const MoviesList(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TrendingSlider(
+                    images: trendingList,
+                    heading: "SuperNatural".tr,
+                  ),
+                  const SizedBox(
+                    height: 150,
+                  ),
+                ],
+              ),
             ),
           ),
         ));

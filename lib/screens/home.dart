@@ -28,6 +28,20 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+        floatingActionButton: FloatingActionButton(
+          backgroundColor: kPrimaryColor,
+          onPressed: () {
+            homeController.isHindi.value = !homeController.isHindi.value;
+            homeController.isHindi.value
+                ? Get.updateLocale(const Locale('en', 'US'))
+                : Get.updateLocale(const Locale('hi', 'IN'));
+          },
+          child: const Icon(
+            Icons.g_translate,
+            color: Colors.white,
+          ),
+        ),
         extendBody: true,
         bottomNavigationBar: Container(
           decoration: const BoxDecoration(),

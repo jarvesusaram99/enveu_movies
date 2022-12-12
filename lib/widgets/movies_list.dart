@@ -38,16 +38,16 @@ class _MoviesListState extends State<MoviesList> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
-          children: const [
-            Text("Movies",
-                style: TextStyle(
+          children: [
+            Text("Movie".tr,
+                style: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w900,
                     fontSize: 20.0)),
-            Spacer(),
+            const Spacer(),
             Text(
-              "More",
-              style: TextStyle(
+              "More".tr,
+              style: const TextStyle(
                   color: kPrimaryColor,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600),

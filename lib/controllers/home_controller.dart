@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   RxInt selectedIndex = 0.obs;
+  RxBool isHindi = false.obs;
   List pages = [
     const HomeScreen(),
     const UsersScreen(),

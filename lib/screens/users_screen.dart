@@ -33,10 +33,10 @@ class _UsersScreenState extends State<UsersScreen> {
               const SizedBox(
                 height: 20,
               ),
-              const Center(
+              Center(
                 child: Text(
-                  "Dummy API Users Data",
-                  style: TextStyle(
+                  "Dummy".tr,
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
                       fontWeight: FontWeight.bold),

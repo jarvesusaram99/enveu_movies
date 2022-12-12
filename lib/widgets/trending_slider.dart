@@ -45,9 +45,9 @@ class _TrendingSliderState extends State<TrendingSlider> {
                     fontWeight: FontWeight.w900,
                     fontSize: 20.0)),
             const Spacer(),
-            const Text(
-              "More",
-              style: TextStyle(
+            Text(
+              "More".tr,
+              style: const TextStyle(
                   color: kPrimaryColor,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w600),
